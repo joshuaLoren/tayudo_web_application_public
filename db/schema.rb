@@ -10,9 +10,53 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_23_163829) do
+ActiveRecord::Schema.define(version: 2018_12_23_184737) do
 
-  create_table "products", options: "ENGINE=MyISAM DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "admin", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+    t.string "user", limit: 50, null: false
+    t.string "password", limit: 32, null: false
+  end
+
+  create_table "departamentos", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+    t.string "nombre", limit: 100, null: false
+  end
+
+  create_table "farmacias_departamentos", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+    t.integer "id_farmacia", null: false
+    t.integer "id_departamento", null: false
+    t.index ["id_departamento"], name: "id_departamento"
+    t.index ["id_farmacia"], name: "id_farmacia"
+  end
+
+  create_table "general", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+    t.string "valor", limit: 200, null: false
+  end
+
+  create_table "generals", id: :string, limit: 100, options: "ENGINE=MyISAM DEFAULT CHARSET=latin1", force: :cascade do |t|
+    t.string "valor", limit: 200, null: false
+  end
+
+  create_table "links", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+    t.string "site", limit: 100, null: false
+    t.string "url", limit: 500, null: false
+    t.datetime "fecha_inicio", null: false
+    t.datetime "ultima_revision", null: false
+    t.string "id_padre", limit: 80, null: false
+    t.string "nombre", limit: 300
+    t.float "precio"
+    t.string "img", limit: 300
+    t.string "id_referencia", limit: 50
+    t.boolean "disponibilidad"
+  end
+
+  create_table "precios", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+    t.integer "id_link", null: false
+    t.float "precio", null: false
+    t.date "fecha", null: false
+    t.index ["id_link"], name: "id_link"
+  end
+
+  create_table "products", options: "ENGINE=MyISAM DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "name"
     t.text "description"
     t.text "secret"
@@ -20,7 +64,7 @@ ActiveRecord::Schema.define(version: 2018_12_23_163829) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", options: "ENGINE=MyISAM DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "users", options: "ENGINE=MyISAM DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
