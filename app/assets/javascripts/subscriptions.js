@@ -13,6 +13,13 @@ $(document).on("turbolinks:load", function() {
     // Prevent the form from being submitted:
     return false;
   });
+
+  $(".show-card-form").on("click", function(e) {
+    e.preventDefault();
+
+    $("#existing-card").hide();
+    $form.show();
+  });
 });
 
 function stripeResponseHandler(status, response) {

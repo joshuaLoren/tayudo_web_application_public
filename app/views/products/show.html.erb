@@ -8,12 +8,15 @@
   <%= @product.description %>
 </p>
 
-<p>
-  <strong>Secret:</strong>
-  <%= @product.secret %>
-</p>
+<% if user_signed_in? && current_user.subscribed? %>
+  <p>
+    <strong>My Secret:</strong>
+    <%= @product.secret %>
+  </p>
 
-<%= link_to "Subscribe", new_subscription_path(plan: "beta"), class: "btn btn-primary" %>
+<% else %>
+  <%= link_to "Subscribe", new_subscription_path(plan: "beta"), class: "btn btn-primary" %>
+<% end %>
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>

@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.4.1'
 
+gem 'receipts', '~> 0.2.2'
+gem 'stripe_event', '~> 2.2'
 gem 'rename'
 gem 'devise', '~> 4.2'
 gem 'bootstrap-sass'

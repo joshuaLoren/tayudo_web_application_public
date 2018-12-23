@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :charges
+
   def stripe_customer
     if stripe_id?
       Stripe::Customer.retrieve(stripe_id)
@@ -12,5 +14,9 @@ class User < ApplicationRecord
       update(stripe_id: stripe_customer.id)
       stripe_customer
     end
+  end
+
+  def subscribed?
+    stripe_subscription_id? || (expires_at? && Time.zone.now < expires_at)
   end
 end
