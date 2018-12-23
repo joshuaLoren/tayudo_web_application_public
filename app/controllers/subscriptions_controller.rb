@@ -5,9 +5,10 @@ class SubscriptionsController < ApplicationController
   end
 
   def create
+    
     customer = current_user.stripe_customer
 
-    customer = Stripe::Customer.create
+    #customer = Stripe::Customer.create
     customer.sources.create(source: params[:stripeToken])
     subscription = customer.subscriptions.create(plan: params[:plan])
 
