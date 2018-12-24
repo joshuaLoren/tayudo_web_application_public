@@ -5,7 +5,14 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: "registrations" }
   
   resource :subscription
+  
   resources :products
+  resource :products
+  
+  #adding routes for product
+  resources :product
+  resource :product
+  
   resources :charges
   
   root to: "products#index"

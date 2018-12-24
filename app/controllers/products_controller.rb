@@ -5,12 +5,16 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
+    
     if user_signed_in? && current_user.subscribed?
       redirect_to product_path(current_user.product_id)
+      #redirect_to controller: 'products', action: 'show', id: current_user.product_id
     else
       @products = Product.all
+      
     end
   end
+  
 
   # GET /products/1
   # GET /products/1.json
