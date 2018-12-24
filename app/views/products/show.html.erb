@@ -15,8 +15,10 @@
   </p>
 
 <% else %>
-  <%= link_to "Subscribe", new_subscription_path(plan: "beta"), class: "btn btn-primary" %>
+
+	<%= link_to "Subscribe", new_subscription_path(plan: @product.name), class: "btn btn-primary" %>
+
 <% end %>
 
-<%= link_to 'Edit', edit_product_path(@product) %> |
+<%#<%= link_to 'Edit', edit_product_path(@product) %> 
 <%= link_to 'Back', products_path %>

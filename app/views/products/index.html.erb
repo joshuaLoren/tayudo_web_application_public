@@ -1,31 +1,61 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Products</h1>
+<h1 class="display-4">Select a plan:</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Secret</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <table>
+    <!--<thead>-->
+    <!--  <tr>-->
+    <!--    <th>Plan Name</th>-->
+    <!--    <th>Description</th>-->
+    <!--    <th>Details</th>-->
+    <!--    <th colspan="3"></th>-->
+    <!--  </tr>-->
+    <!--</thead>-->
 
-  <tbody>
-    <% @products.each do |product| %>
-      <tr>
-        <td><%= product.name %></td>
-        <td><%= product.description %></td>
-        <td><%= product.secret %></td>
-        <td><%= link_to 'Show', product %></td>
-        <td><%= link_to 'Edit', edit_product_path(product) %></td>
-        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <tbody>
+      <% @products.each do |product| %>
+        <!--<tr class="card text-white bg-primary mb-3" style="max-width: 18rem;">-->
+        <!--  <td class="card-header"><%= product.name %></td>-->
+        <!--  <div class="card-body">-->
+        <!--    <td class="card-text"><%= product.description %></td>-->
+            <%#<td><%= product.secret %><%#</td>%>
+        <!--    <td><%= link_to 'Learn More', product %></td>-->
+        <!--    <td><%= link_to 'Edit', edit_product_path(product) %> </td> -->
+            <%# <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %> <%#</td>%>
+        <!--  </div>-->
+        <!--</tr>-->
+        
+        <!--<div class="card text-white bg-primary mb-3" style="height: 150px; margin: 20px;">-->
+        <!--  <div class="card-header">Header</div>-->
+        <!--  <div class="card-body">-->
+        <!--    <h5 class="card-title">Primary card title</h5>-->
+        <!--    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
+        <!--  </div>-->
+        <!--</div>-->
+        
+        <div class="card text-center" style="min-height: 125px; margin: 15px;">
+          <div class="card-header">
+            <%= product.name %>
+          </div>
+          <div class="card-body">
+            <% if product.name == "Beta" %>
+              <h5 class="card-title">$50/Monthly</h5>
+            <% elsif product.name == "Corporate" %>
+              <h5 class="card-title">$150/Monthly</h5>
+             <% else product.name == "Pro" %>
+              <h5 class="card-title">$250/Monthly</h5>
+            <% end -%>  
+            <p class="card-text"><%= product.description %></p>
+            <p class="btn btn-primary" style="margin-bottom:5px; text:white;"><%= link_to 'Register', product %></p>
+            <td><%= link_to 'Edit', edit_product_path(product) %> </td> 
+          </div>
+        </div>
+        
+      <% end %>
+    </tbody>
+  </table>
+
+</div>
 
 <br>
 
-<%= link_to 'New Product', new_product_path %>
+<%#<%= link_to 'New Product', new_product_path %> 

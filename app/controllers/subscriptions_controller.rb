@@ -68,6 +68,7 @@ class SubscriptionsController < ApplicationController
 
     redirect_to root_path, notice: "You have cancelled your subscription. You will have access until #{current_user.expires_at.to_date}."
   end
+  
 end
 
 
