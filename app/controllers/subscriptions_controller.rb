@@ -6,6 +6,14 @@ class SubscriptionsController < ApplicationController
 
   def create
     
+    if (params[:plan] == "Beta")
+      @plan = 2  
+    elsif (params[:plan] == "Corporate")
+      @plan = 3
+    else
+      @plan = 4
+    end
+    
     customer = current_user.stripe_customer
 
     #customer = Stripe::Customer.create
@@ -19,13 +27,14 @@ class SubscriptionsController < ApplicationController
         card_brand: params[:card_brand],
         card_last4: params[:card_last4],
         card_exp_month: params[:card_exp_month],
-        card_exp_year: params[:card_exp_year]
+        card_exp_year: params[:card_exp_year],
+        product_id: @plan
       ) if params[:card_last4]
       
     current_user.save
 
     flash.notice = "Thanks for subscribing!"
-    redirect_to root_path
+    redirect_to product_path(@plan)
   rescue Stripe::CardError => e
       flash.alert = e.message
       render action: :new  
@@ -35,6 +44,17 @@ class SubscriptionsController < ApplicationController
   end
 
   def update
+    
+        
+    if (params[:plan] == "Beta")
+      @plan = 2  
+    elsif (params[:plan] == "Corporate")
+      @plan = 3
+    else
+      @plan = 4
+    end
+    
+    
     customer = current_user.stripe_customer
 
     #customer = Stripe::Customer.create
@@ -47,12 +67,14 @@ class SubscriptionsController < ApplicationController
         card_brand: params[:card_brand],
         card_last4: params[:card_last4],
         card_exp_month: params[:card_exp_month],
-        card_exp_year: params[:card_exp_year]
+        card_exp_year: params[:card_exp_year],
+        product_id: @plan
+        
       )
       
      current_user.save
      flash.notice = "Your card was updated successfully"
-     redirect_to root_path
+     redirect_to product_path(@plan)
 
     rescue Stripe::CardError => e
       flash.alert = e.message
