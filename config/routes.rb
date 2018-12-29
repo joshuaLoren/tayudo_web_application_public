@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
+  resources :reports
   devise_for :add_product_id_to_users
   mount StripeEvent::Engine, at: '/webhooks/stripe'
   
   devise_for :users, controllers: { registrations: "registrations" }
   
+  #adding routes for subscription
   resource :subscription
+
   
+  #adding routes for products  
   resources :products
   resource :products
   

@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  site: MyString
+  url: MyString
+  fecha_inicio: 2018-12-28 23:26:17
+  ultima_revision: 2018-12-28 23:26:17
+  macro_categoria: MyString
+  id_padre: MyString
+  nombre: MyString
+  precio: 1
+  img: MyString
+  id_referencia: 1
+  disponibilidad: 1
+  fecha_scrape_update: 2018-12-28 23:26:17
+  descr: MyString
+  atc: MyString
+  generic: MyString
+
+two:
+  site: MyString
+  url: MyString
+  fecha_inicio: 2018-12-28 23:26:17
+  ultima_revision: 2018-12-28 23:26:17
+  macro_categoria: MyString
+  id_padre: MyString
+  nombre: MyString
+  precio: 1
+  img: MyString
+  id_referencia: 1
+  disponibilidad: 1
+  fecha_scrape_update: 2018-12-28 23:26:17
+  descr: MyString
+  atc: MyString
+  generic: MyString

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<h1> Report: </h1>
+
+<table>
+    <% @links.each do |link| %>
+        <tr>
+            <td>site:</td>
+            <td><%= link.site %></td>
+        </tr>
+    <% end %>
+</table>
+
+<%= link_to 'Back', reports_path %>

@@ -1,19 +1,28 @@
+<%#
+    Refactor: There is too much code in this view?
+
+    In this view (products/show) the links show are based on the users status. If they are signed in and
+    registered they will see the product based on the product id associated with their account
+    
+    If they are not signed in and subscribed they will see the subscription details for the product they selected.
+    
+    They will not see this page if they are not signed in. 
+%>
+
 <div class="card text-center card_hover_effect" style="min-height: 125px; margin: auto; max-width: 400px; width: 50%">
 
   <div class="card-header">
     <strong><%= @product.name + " Reports"%></strong>
   </div>
 
-
-
   <% if user_signed_in? && current_user.subscribed? && current_user.product_id == 2%>
   
       <%# <strong>My Secret:</strong> #>
       <%= @product.secret %>
       <ul style="text-align: left; margin: 20px;">
-        <li><p class="btn btn-primary" style="margin: 15px;"><%= link_to 'Generate General Report', edit_product_path(@product) %> </p></li>
-        <li><p class="btn btn-primary" style="margin: 15px;"><%= link_to 'Generate Report 2', edit_product_path(@product) %> </p></li>
-        <li><p class="btn btn-primary"style="margin: 15px;"><%= link_to 'Generate Report 3', edit_product_path(@product) %> </p></li>
+        <li><p class="btn btn-primary" style="margin: 15px;"><%= link_to 'Generate Base Report', report_path(:id => 1) %> </p></li>
+        <li><p class="btn btn-primary" style="margin: 15px;"><%= link_to 'Generate Report 2', report_path(:id => 2) %> </p></li>
+        <li><p class="btn btn-primary"style="margin: 15px;"><%= link_to 'Generate Report 3', report_path(:id => 3) %> </p></li>
       </ul>
 
   <% elsif user_signed_in? && current_user.subscribed? && current_user.product_id == 3%>
@@ -23,7 +32,7 @@
         <li><p class="btn btn-primary" style="margin: 15px;"><%= link_to 'Generate Report 2', edit_product_path(@product) %> </p></li>
         <li><p class="btn btn-primary"style="margin: 15px;"><%= link_to 'Generate Report 3', edit_product_path(@product) %> </p></li>
         <li><p class="btn btn-primary" style="margin: 15px;"><%= link_to 'Generate Report 4', edit_product_path(@product) %> </p></li>
-        <li><p class="btn btn-primary" style="margin: 15px;"><%= link_to 'Generate Report 5', edit_product_path(@product) %> </p></li>
+        <li><p class="btn btn-primary"style="margin: 15px;"><%= link_to 'Generate Report 5', edit_product_path(@product) %> </p></li>
       </ul>
 
   <% elsif user_signed_in? && current_user.subscribed? && current_user.product_id == 4%>
