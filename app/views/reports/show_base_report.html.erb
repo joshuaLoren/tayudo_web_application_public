@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<h1 class="display-3 text-center"> Base Report </h1>
+
+<table class="table table-striped table-bordered">
+    <%# EXAMPLE OF .each %>
+    <%# @links.each do |link| %>
+        <!-- <tr>
+            <td>site:</td>
+            <td><%#= link.site %></td>
+        </tr>
+    <%# end %> -->
+    <tr>
+        <th scope="col">Droguerías</th>
+        <th scope="col">Seguimiento </th>
+    </tr>
+
+    <tr>
+        <td>Cafam</td>
+        <td><%=@cafam_sum %></td> 
+    </tr>
+    <tr>
+        <td>Rebaja</td>
+        <td><%=@rebaja_sum %></td> 
+    </tr>
+    <tr>
+        <td>San Jorge</td>
+        <td><%=@san_jorge_sum %></td> 
+    </tr>
+    <tr>
+        <td>Colusbsidio</td>
+        <td><%=@colsubsidio_sum %></td> 
+    </tr>
+    <tr>
+        <td>Locatel</td>
+        <td><%=@locatel_sum %></td> 
+    </tr>
+    <tr>
+        <td>Farmalisto</td>
+        <td><%=@farmalisto_sum%></td> 
+    </tr>
+    <tr>
+        <td>Locatel</td>
+        <td><%=@locatel_sum %></td> 
+    </tr>
+    <tr>
+        <td>La Economia</td>
+        <td><%=@la_economia %></td> 
+    </tr>
+</table>
+
+
+
+
+<p class="btn btn-primary"><%=link_to 'Back', products_path(current_user.product_id) %></p>

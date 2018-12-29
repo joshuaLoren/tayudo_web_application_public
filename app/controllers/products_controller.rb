@@ -9,9 +9,10 @@ class ProductsController < ApplicationController
     if user_signed_in? && current_user.subscribed?
       redirect_to product_path(current_user.product_id)
       #redirect_to controller: 'products', action: 'show', id: current_user.product_id
-    else
+    elsif user_signed_in?
       @products = Product.all
-      
+    else
+      redirect_to new_user_registration_path
     end
   end
   

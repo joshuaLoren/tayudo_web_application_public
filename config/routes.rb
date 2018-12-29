@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  resources :reports
+  
+  #reports controller has many custom functions
+  resources :reports do
+      get 'show_base_report', :on => :collection
+  end
+  
   devise_for :add_product_id_to_users
   mount StripeEvent::Engine, at: '/webhooks/stripe'
   
