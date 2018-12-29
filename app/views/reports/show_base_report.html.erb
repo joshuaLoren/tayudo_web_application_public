@@ -10,10 +10,10 @@
             <td><%#= link.site %></td>
         </tr>
     <%# end %> -->
-    <tr>
+    <thead class="table-primary">
         <th scope="col">Droguerías</th>
         <th scope="col">Seguimiento </th>
-    </tr>
+    </thead>
 
     <tr>
         <td>Cafam</td>
@@ -52,4 +52,4 @@
 
 
 
-<p class="btn btn-primary"><%=link_to 'Back', products_path(current_user.product_id) %></p>
+<p class="btn btn-primary"><%=link_to 'Return Home', products_path(current_user.product_id) %></p>

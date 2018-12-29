@@ -1,4 +1,7 @@
-<h1>Subscribe</h1>
+<body id="LoginForm">
+
+<div class="login-form">
+
 
 <% if current_user.card_last4? %>
   <%= form_tag subscription_path, id: "existing-card" do %>
@@ -16,6 +19,7 @@
 <%= form_tag subscription_path, id: "payment-form", style: (current_user.card_last4? ? "display:none" : nil) do %>
   <span class="payment-errors"></span>
 
+  <h2 class="text-center display-4">Subscribe</h2>     
   <div class="form-row">
     <label>
       <span>Card Number</span>
@@ -41,5 +45,8 @@
 
   <%= hidden_field_tag :plan, params[:plan] %>
 
-  <input type="submit" class="submit" value="Submit Payment">
+  <input type="submit" class="submit btn btn-primary btn-block" value="Submit Payment">
 <% end %>
+
+</div>
+</body>

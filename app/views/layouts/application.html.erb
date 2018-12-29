@@ -3,7 +3,6 @@
   <head>
     <title>Business Inteligence Services</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <%= javascript_include_tag 'application', 'https://js.stripe.com/v2/', 'data-turbolinks-track': 'reload' %>
@@ -12,24 +11,21 @@
   </head>
 
  <body>
-  
-
-  <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+  <nav class="navbar navbar-expand-lg sticky-top navbar-light bg-dark">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-      <a class="navbar-brand " href="#"><h1>Business Inteligence Services</h1></a>
+      <a class="navbar-brand " href="#"><h3 class="display-4">Business Inteligence Services</h1></a>
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-        <li class="nav-item active">
-          <li><%= link_to "Home", products_path %></li>
-        </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
+          <li><%= link_to "Home", products_path %></li>
           <li><%= link_to "Account", edit_user_registration_path %></li>
           <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
         <% else %>
+          <li><%= link_to "Home", products_path %></li>
           <li><%= link_to "Sign up", new_user_registration_path %></li>
           <li><%= link_to "Login", new_user_session_path %></li>
         <% end %>

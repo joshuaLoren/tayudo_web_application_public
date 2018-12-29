@@ -1,3 +1,5 @@
+<div class="login-form">
+
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -75,9 +77,11 @@
         <tr>
           <td><%= charge.created_at.to_date %></td>
           <td><%= number_to_currency charge.amount / 100 %></td>
-          <td><%= link_to "Download", charge_path(charge, format: :pdf) %></td>
+          <td><%= link_to "Download", charge_path(charge, format: :pdf), class: "btn btn-primary" %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
 <% end %>
+
+</div>
