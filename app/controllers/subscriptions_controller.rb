@@ -7,11 +7,11 @@ class SubscriptionsController < ApplicationController
   def create
     
     if (params[:plan] == "Beta")
-      @plan = 2  
+      @plan = 1  
     elsif (params[:plan] == "Corporate")
-      @plan = 3
+      @plan = 2
     else
-      @plan = 4
+      @plan = 3
     end
     
     customer = current_user.stripe_customer
@@ -47,11 +47,11 @@ class SubscriptionsController < ApplicationController
     
         
     if (params[:plan] == "Beta")
-      @plan = 2  
+      @plan = 1  
     elsif (params[:plan] == "Corporate")
-      @plan = 3
+      @plan = 2
     else
-      @plan = 4
+      @plan = 3
     end
     
     

@@ -16,7 +16,16 @@ class ReportsController < ApplicationController
   
   def show
     if (params[:id] == "1")
-      @links = Link.take(10)
+      @cafam_sum = Link.where(site: "drogueriascafam").count
+      @rebaja_sum = Link.where(site: "rebajavirtual").count
+      @san_jorge_sum = Link.where(site: "sanjorge").count
+      @colsubsidio_sum = Link.where(site: "colsubsidio").count
+      @locatel_sum = Link.where(site: "locatel").count
+      @farmalisto_sum = Link.where(site: "farmalisto").count
+      @farmatodo = Link.where(site: "farmatodo").count
+      @locatel = Link.where(site: "locatel").count
+      @la_economia = Link.where(site: "laeconomia").count
+      #@links = Link.take(10)
     elsif (params[:id] == "2")
       @links = Link.take(20)
     else

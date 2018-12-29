@@ -15,7 +15,7 @@
     <strong><%= @product.name + " Reports"%></strong>
   </div>
 
-  <% if user_signed_in? && current_user.subscribed? && current_user.product_id == 2%>
+  <% if user_signed_in? && current_user.subscribed? && current_user.product_id == 1%>
   
       <%# <strong>My Secret:</strong> #>
       <%= @product.secret %>
@@ -25,7 +25,7 @@
         <li><p class="btn btn-primary"style="margin: 15px;"><%= link_to 'Generate Report 3', report_path(:id => 3) %> </p></li>
       </ul>
 
-  <% elsif user_signed_in? && current_user.subscribed? && current_user.product_id == 3%>
+  <% elsif user_signed_in? && current_user.subscribed? && current_user.product_id == 2%>
   
       <ul style="text-align: left; margin: 20px;">
         <li><p class="btn btn-primary" style="margin: 15px;"><%= link_to 'Generate General Report', edit_product_path(@product) %> </p></li>
@@ -35,7 +35,7 @@
         <li><p class="btn btn-primary"style="margin: 15px;"><%= link_to 'Generate Report 5', edit_product_path(@product) %> </p></li>
       </ul>
 
-  <% elsif user_signed_in? && current_user.subscribed? && current_user.product_id == 4%>
+  <% elsif user_signed_in? && current_user.subscribed? && current_user.product_id == 3%>
   
       <ul style="text-align: left; margin: 20px;">
         <li><p class="btn btn-primary" style="margin: 15px;"><%= link_to 'Generate General Report', edit_product_path(@product) %> </p></li>
