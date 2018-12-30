@@ -16,18 +16,19 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-      <a class="navbar-brand " href="#"><h3 class="display-4">Business Inteligence Services</h1></a>
+      <img src="https://i.imgur.com/SbDo6d7.png" alt="">
+      
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
-          <li><%= link_to "Home", products_path %></li>
-          <li><%= link_to "Account", edit_user_registration_path %></li>
-          <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+          <li><%= link_to "Home", products_path, class: "font-weight-bold" %></li>
+          <li><%= link_to "Account", edit_user_registration_path, class: "font-weight-bold" %></li>
+          <li><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "font-weight-bold" %></li>
         <% else %>
-          <li><%= link_to "Home", products_path %></li>
-          <li><%= link_to "Sign up", new_user_registration_path %></li>
-          <li><%= link_to "Login", new_user_session_path %></li>
+          <li><%= link_to "Home", products_path, class: "font-weight-bold" %></li>
+          <li><%= link_to "Sign up", new_user_registration_path, class: "font-weight-bold" %></li>
+          <li><%= link_to "Login", new_user_session_path, class: "font-weight-bold" %></li>
         <% end %>
       </ul>
     </div>
